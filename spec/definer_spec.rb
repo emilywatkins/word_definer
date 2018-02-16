@@ -4,6 +4,9 @@ require("pry")
 require("definer")
 
 describe('Word') do
+  before() do
+    Word.clear()
+  end
 
   describe('.all') do
     it('is empty at first') do
