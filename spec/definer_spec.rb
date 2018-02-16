@@ -16,7 +16,7 @@ describe('Word') do
 
   describe('#save') do
     it('saves a word to the list') do
-      word = Word.new('squirrel')
+      word = Word.new({:word=> 'squirrel', :definition=> ''})
       word.save()
       expect(Word.all()).to(eq([word]))
     end
@@ -24,7 +24,7 @@ describe('Word') do
 
   describe('.clear') do
     it('clears words from the list') do
-      word = Word.new('squirrel')
+      word = Word.new({:word=> 'squirrel', :definition=> ''})
       word.save()
       Word.clear()
       expect(Word.all()).to(eq([]))

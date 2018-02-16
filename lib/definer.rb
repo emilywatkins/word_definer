@@ -1,10 +1,11 @@
 class Word
   @@word_list = []
 
-  attr_reader :word
+  attr_reader :word, :definition
 
-  def initialize(word)
-    @word = word
+  def initialize(attributes)
+    @word = attributes.fetch(:word)
+    @definition = attributes.fetch(:definition)
   end
 
   def self.all
