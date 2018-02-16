@@ -16,7 +16,16 @@ describe('the definition path', {:type => :feature}) do
   it('returns inputted word on new page') do
     visit('/')
     fill_in('word', :with => 'squirrel')
-    click_button('squirrel')
+    click_link('squirrel')
     expect(page).to have_content('squirrel')
   end
 end
+
+# describe('the add definition path', {:type => :feature}) do
+#   it('returns inputted definition on same page') do
+#     visit('/@entry')
+#     fill_in('definition', :with => 'woodland animal')
+#     click_button('Add definition')
+#     expect(page).to have_content('woodland animal')
+#   end
+# end
