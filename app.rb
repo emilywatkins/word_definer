@@ -16,3 +16,7 @@ post('/') do
   @word_list = Word.all()
   erb(:home)
 end
+
+get('/:word') do
+  
+end
