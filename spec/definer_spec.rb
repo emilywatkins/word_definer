@@ -11,5 +11,11 @@ describe('Word') do
     end
   end
 
+  describe('#save') do
+    it('saves a word to the list') do
+      word = Word.new('squirrel')
+      expect(Word.all()).to(eq([word]))
+    end
+  end
 
 end
