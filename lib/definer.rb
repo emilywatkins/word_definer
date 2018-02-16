@@ -8,7 +8,7 @@ class Word
   end
 
   def self.all
-
+    @@word_list
   end
 
 end
