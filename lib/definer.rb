@@ -22,6 +22,7 @@ class Word
   end
 
   def add_definition(definition)
+    @definition.push(definition)
   end
 
 end
