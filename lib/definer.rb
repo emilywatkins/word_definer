@@ -16,6 +16,7 @@ class Word
   end
 
   def self.clear
+    @@word_list = []
   end
 
 end
