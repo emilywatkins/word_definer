@@ -5,7 +5,8 @@ class Word
 
   def initialize(attributes)
     @word = attributes.fetch(:word)
-    @definition = attributes.fetch(:definition)
+    # @definition = attributes.fetch(:definition)
+    @definition = []
   end
 
   def self.all
@@ -18,6 +19,9 @@ class Word
 
   def self.clear
     @@word_list = []
+  end
+
+  def add_definition(definition)
   end
 
 end
