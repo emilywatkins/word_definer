@@ -15,4 +15,7 @@ class Word
     @@word_list.push(self)
   end
 
+  def self.clear
+  end
+
 end
