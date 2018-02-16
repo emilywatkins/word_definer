@@ -12,6 +12,7 @@ class Word
   end
 
   def save
+    @@word_list.push(self)
   end
 
 end
