@@ -1,5 +1,8 @@
 <h2>Words</h2>
 
+<% @word_list.each do |entry| %>
+  <h4><a href="/<%= entry.word %>"><%= entry.word %></a></h4>
+<% end %>
 
 <h4>Add a word to the list: </h4>
 
