@@ -18,5 +18,6 @@ post('/') do
 end
 
 get('/:word') do
-  
+  @word = Word.new(params["word"])
+  erb(:definition)
 end
