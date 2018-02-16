@@ -11,20 +11,23 @@ end
 
 post('/') do
   word = params['word']
-  definition = params['definition']
-  entry = Word.new({:word=> word, :definition=> definition})
+  entry = Word.new({:word=> word})
   entry.save()
   @word_list = Word.all()
   erb(:home)
 end
 
 get('/:word') do
-  @entry = Word.new({:word=> params['word'], :definition=> params['definition']})
+  @entry = Word.new({:word=> params['word']})
   erb(:definition)
 end
 
 post('/:word') do
-  @entry = Word.new({:word=> params['word'], :definition=> params['definition']})
+  entry = Word.new({:word=> params['word']})
+  entry.add_definition(params['definition'])
+  entry.save()
+  @word_list = Word.all()
+  binding.pry
   erb(:definition)
 end
 
