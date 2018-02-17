@@ -1,5 +1,7 @@
 <h1><%= @entry.word %></h1>
-<h1><%= @entry.definition %></h1>
+<h1><%= @entry.definition.join %></h1>
+
+<!-- each loop still doesn't work here for some reason -->
 
 
 <form action="/<%= @entry.word %>" method="post">

@@ -23,12 +23,9 @@ get('/:word') do
 end
 
 post('/:word') do
-  entry = Word.new({:word=> params['word']})
-  entry.add_definition(params['definition'])
-  entry.save()
+  @entry = Word.new({:word=> params['word']})
+  @entry.add_definition(params['definition'])
+  @entry.save()
   @word_list = Word.all()
-  binding.pry
   erb(:definition)
 end
-
-# save method won't work for more variation. refactor for a save_item(item) method that will store one or the other in the master object/list?
