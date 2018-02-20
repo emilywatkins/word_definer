@@ -25,4 +25,7 @@ class Word
     @definition.push(definition)
   end
 
+  def self.find(name)
+  end
+
 end
