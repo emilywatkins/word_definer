@@ -1,7 +1,7 @@
 require("sinatra")
 require("rspec")
 require("pry")
-require("definer")
+require("word")
 
 describe('Word') do
   before() do
@@ -14,10 +14,10 @@ describe('Word') do
     end
   end
 
-  describe('#save') do
+  describe('.save') do
     it('saves a word to the list') do
       word = Word.new({:word=> 'squirrel'})
-      word.save()
+      Word.save(word)
       expect(Word.all()).to(eq([word]))
     end
   end
@@ -25,7 +25,7 @@ describe('Word') do
   describe('.clear') do
     it('clears words from the list') do
       word = Word.new({:word=> 'squirrel'})
-      word.save()
+      Word.save(word)
       Word.clear()
       expect(Word.all()).to(eq([]))
     end
@@ -34,7 +34,7 @@ describe('Word') do
   describe('#add_definition') do
     it('adds a definition to the definition array') do
       item = Word.new({:word=>'squirrel'})
-      item.save()
+      Word.save(item)
       item.add_definition('woodland creature')
       expect(item.definition()).to(eq(['woodland creature']))
     end
@@ -44,7 +44,7 @@ describe('Word') do
     it('returns a definition based on its name') do
       word = Word.new({:word=> 'squirrel'})
       word.add_definition('woodland creature')
-      word.save()
+      Word.save(word)
       expect(Word.find('squirrel')).to(eq(['woodland creature']))
     end
   end
@@ -53,7 +53,7 @@ describe('Word') do
     it('returns multiple definitions based on its name') do
       word = Word.new({:word=> 'squirrel'})
       word.add_definition('woodland creature')
-      word.save()
+      Word.save(word)
       word.add_definition('teeth')
       expect(Word.find('squirrel')).to(eq(['woodland creature', 'teeth']))
     end

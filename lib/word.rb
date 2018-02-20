@@ -12,8 +12,10 @@ class Word
     @@word_list
   end
 
-  def save
-    @@word_list.push(self)
+  def self.save(word)
+    if !@@word_list.include?(word)
+      @@word_list.push(word)
+    end
   end
 
   def self.clear
