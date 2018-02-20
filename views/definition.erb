@@ -1,7 +1,8 @@
 <h1><%= @entry.word %></h1>
-<h1><%= @entry.definition.join %></h1>
 
-<!-- each loop still doesn't work here for some reason -->
+<% @word_list.each do |entry| %>
+  <h4><%= entry.definition.join %></h4>
+<% end %>
 
 
 <form action="/<%= @entry.word %>" method="post">
