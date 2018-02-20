@@ -1,7 +1,8 @@
 <h1><%= @entry.word %></h1>
 
+<h4><u>definitions:</u></h4>
 <% @entry.definitions.each do |definition| %>
-<h4><%= definition %></h4>
+<h5><%= definition %></h5>
 <% end %>
 
 <form action="/<%= @entry.word %>" method="post">
