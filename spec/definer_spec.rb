@@ -41,10 +41,11 @@ describe('Word') do
   end
 
   describe('.find') do
-    it('finds a definition based on its name') do
+    it('returns a definition based on its name') do
       word = Word.new({:word=> 'squirrel'})
       word.add_definition('woodland creature')
-      expect(word.find('squirrel')).to(eq('woodland creature'))
+      word.save()
+      expect(Word.find('squirrel')).to(eq(['woodland creature']))
     end
   end
 end

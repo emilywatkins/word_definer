@@ -25,7 +25,11 @@ class Word
     @definition.push(definition)
   end
 
-  def self.find(name)
+  def self.find(word)
+    @@word_list.each do |entry|
+      if entry.word == word
+        return entry.definition
+      end
+    end
   end
-
 end
