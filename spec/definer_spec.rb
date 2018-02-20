@@ -48,4 +48,14 @@ describe('Word') do
       expect(Word.find('squirrel')).to(eq(['woodland creature']))
     end
   end
+
+  describe('.find') do
+    it('returns multiple definitions based on its name') do
+      word = Word.new({:word=> 'squirrel'})
+      word.add_definition('woodland creature')
+      word.save()
+      word.add_definition('teeth')
+      expect(Word.find('squirrel')).to(eq(['woodland creature', 'teeth']))
+    end
+  end
 end

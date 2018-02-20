@@ -26,6 +26,7 @@ post('/:word') do
   @entry = Word.new({:word=> params['word']})
   @entry.add_definition(params['definition'])
   @entry.save()
+  Word.find(params['word'])
   @word_list = Word.all()
   erb(:definition)
 end

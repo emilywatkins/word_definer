@@ -5,7 +5,6 @@ class Word
 
   def initialize(attributes)
     @word = attributes.fetch(:word)
-    # @definition = attributes.fetch(:definition)
     @definition = []
   end
 
@@ -26,10 +25,12 @@ class Word
   end
 
   def self.find(word)
+    definitions = []
     @@word_list.each do |entry|
       if entry.word == word
-        return entry.definition
+        definitions += (entry.definition)
       end
     end
+    definitions
   end
 end
