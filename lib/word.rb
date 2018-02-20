@@ -1,11 +1,11 @@
 class Word
   @@word_list = []
 
-  attr_accessor :word, :definition
+  attr_accessor :word, :definitions
 
   def initialize(attributes)
     @word = attributes.fetch(:word)
-    @definition = []
+    @definitions = []
   end
 
   def self.all
@@ -13,7 +13,7 @@ class Word
   end
 
   def self.save(word)
-    if !@@word_list.include?(word)
+    if !@@word_list.map {|w| w.word}.include? word.word
       @@word_list.push(word)
     end
   end
@@ -23,16 +23,15 @@ class Word
   end
 
   def add_definition(definition)
-    @definition.push(definition)
+    @definitions.push(definition)
   end
 
   def self.find(word)
-    definitions = []
     @@word_list.each do |entry|
       if entry.word == word
-        definitions += (entry.definition)
+        return entry
       end
     end
-    definitions
+    nil
   end
 end

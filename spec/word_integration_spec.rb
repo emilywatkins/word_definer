@@ -23,7 +23,7 @@ end
 
 describe('the add definition path', {:type => :feature}) do
   it('returns inputted definition on same page') do
-    visit('/@entry')
+    visit('/squirrel')
     fill_in('definition', :with => 'woodland animal')
     click_button('Add definition')
     expect(page).to have_content('woodland animal')

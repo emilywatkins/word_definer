@@ -36,7 +36,7 @@ describe('Word') do
       item = Word.new({:word=>'squirrel'})
       Word.save(item)
       item.add_definition('woodland creature')
-      expect(item.definition()).to(eq(['woodland creature']))
+      expect(item.definitions()).to(eq(['woodland creature']))
     end
   end
 
@@ -45,7 +45,7 @@ describe('Word') do
       word = Word.new({:word=> 'squirrel'})
       word.add_definition('woodland creature')
       Word.save(word)
-      expect(Word.find('squirrel')).to(eq(['woodland creature']))
+      expect(Word.find('squirrel')).to(eq(word))
     end
   end
 
@@ -55,7 +55,7 @@ describe('Word') do
       word.add_definition('woodland creature')
       Word.save(word)
       word.add_definition('teeth')
-      expect(Word.find('squirrel')).to(eq(['woodland creature', 'teeth']))
+      expect(Word.find('squirrel')).to(eq(word))
     end
   end
 end

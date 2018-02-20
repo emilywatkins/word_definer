@@ -18,17 +18,16 @@ post('/') do
 end
 
 get('/:word') do
-  @entry = Word.new({:word=> params['word']})
+  @entry = Word.find(params['word'])
   @word_list = Word.all()
   erb(:definition)
 end
 
 post('/:word') do
   word = params['word']
-  @entry = Word.new({:word=> params['word']})
+  @entry = Word.find(params['word'])
   @entry.add_definition(params['definition'])
   Word.save(@entry)
-  Word.find(params['word'])
   @word_list = Word.all()
   erb(:definition)
 end
